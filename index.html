@@ -111,7 +111,7 @@ fetch('https://script.google.com/macros/s/AKfycbxfZK8Uca2gyh_vd2Zu2r2fbZggRn9txR
 
   const marker = L.marker([loc.Lat, loc.Lon], { icon: iconToUse }).addTo(map);
       // Add a popup with extra fields from the sheet
-      marker.bindPopup(`<strong>${loc.Genre}</strong>`);
+      marker.bindPopup(`${loc.Genre}`);
  }
     });
   })
@@ -120,4 +120,5 @@ fetch('https://script.google.com/macros/s/AKfycbxfZK8Uca2gyh_vd2Zu2r2fbZggRn9txR
   });
 </script>
 </body>
+
 </html>
