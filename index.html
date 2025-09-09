@@ -27,13 +27,13 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 // Use locate method to find user's location and set view
-map.locate({ setView: true, maxZoom: 16 });
+map.locate({ setView: true, maxZoom: 12 });
 
 // Listen for location found event to add a marker and accuracy circle
 map.on('locationfound', function(e) {
     var radius = e.accuracy;
     L.marker(e.latlng).addTo(map)
-        .bindPopup("You are within " + radius.toFixed(0) + " meters from this point");
+       // .bindPopup("You are within " + radius.toFixed(0) + " meters from this point");
     L.circle(e.latlng, radius).addTo(map);
 });
 
@@ -120,6 +120,7 @@ fetch('https://script.google.com/macros/s/AKfycbxfZK8Uca2gyh_vd2Zu2r2fbZggRn9txR
 </body>
 
 </html>
+
 
 
 
