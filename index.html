@@ -33,7 +33,7 @@ map.locate({ setView: true, maxZoom: 16 });
 map.on('locationfound', function(e) {
     var radius = e.accuracy;
     L.marker(e.latlng).addTo(map)
-        .bindPopup("You are within " + radius.toFixed(0) + " meters from this point").openPopup();
+        .bindPopup("You are within " + radius.toFixed(0) + " meters from this point");
     L.circle(e.latlng, radius).addTo(map);
 });
 
@@ -120,6 +120,7 @@ fetch('https://script.google.com/macros/s/AKfycbxfZK8Uca2gyh_vd2Zu2r2fbZggRn9txR
 </body>
 
 </html>
+
 
 
 
