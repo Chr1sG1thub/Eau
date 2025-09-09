@@ -26,7 +26,23 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: '© OpenStreetMap contributors'
 }).addTo(map);
 
-const greenIcon = new L.Icon({
+// Use locate method to find user's location and set view
+map.locate({ setView: true, maxZoom: 16 });
+
+// Listen for location found event to add a marker and accuracy circle
+map.on('locationfound', function(e) {
+    var radius = e.accuracy;
+    L.marker(e.latlng).addTo(map)
+        .bindPopup("You are within " + radius.toFixed(0) + " meters from this point").openPopup();
+    L.circle(e.latlng, radius).addTo(map);
+});
+
+// Optionally handle location error
+map.on('locationerror', function(e) {
+    alert(e.message);
+});
+    
+  const greenIcon = new L.Icon({
   iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png',
 //  shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
   iconSize: [20, 30],
@@ -104,6 +120,7 @@ fetch('https://script.google.com/macros/s/AKfycbxfZK8Uca2gyh_vd2Zu2r2fbZggRn9txR
 </body>
 
 </html>
+
 
 
 
