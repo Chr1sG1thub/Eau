@@ -38,9 +38,9 @@ map.on('locationfound', function(e) {
 });
 
 // Optionally handle location error
-map.on('locationerror', function(e) {
-    alert(e.message);
-});
+//map.on('locationerror', function(e) {
+//    alert(e.message);
+//});
     
   const greenIcon = new L.Icon({
   iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png',
@@ -117,11 +117,12 @@ fetch('https://script.google.com/macros/s/AKfycbxfZK8Uca2gyh_vd2Zu2r2fbZggRn9txR
     console.error('Failed to load locations:', err);
   });
 </script>
-  <button style="position: fixed; top: 20px; left: 20px; z-index: 1000;">Click Me</button>
+<!--  <button style="position: fixed; top: 20px; left: 20px; z-index: 1000;">Click Me</button> -->
 
 </body>
 
 </html>
+
 
 
 
